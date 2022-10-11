@@ -22,7 +22,7 @@ namespace API.D2H.Controllers
         };
 
 
-        IRepository _repository;
+        private IRepository _repository;
 
         public PackagesController(IRepository repository)
         {

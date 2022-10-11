@@ -16,6 +16,10 @@ namespace API.D2H
             var container = new UnityContainer();
             
             container.RegisterSingleton<IRepository, Repository>(); 
+            
+            
+            
+            
             config.DependencyResolver = new UnityResolver(container);
 
 
