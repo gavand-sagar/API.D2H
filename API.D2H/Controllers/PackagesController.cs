@@ -11,15 +11,7 @@ namespace API.D2H.Controllers
     public class PackagesController : ApiController
     {
 
-        List<Package> _packages = new List<Package>() {
-        new Package(){Id = 1, Name ="Silver"},
-        new Package(){Id = 2, Name ="Gold"},
-        new Package(){Id = 3, Name ="Diamond"},
-        new Package(){Id = 4, Name ="Bronze"},
-        new Package(){Id = 5, Name ="Steel"},
-        new Package(){Id = 6, Name ="Copper"},
-        new Package(){Id = 7, Name ="Platinum"},
-        };
+        
 
 
         private IRepository _repository;
@@ -35,13 +27,13 @@ namespace API.D2H.Controllers
         {
 
             var result = _repository.MyValues;
-            return _packages;
+            return _repository._packages;
         }
 
         // GET: api/Packages/5
         public IEnumerable<Package> Get(string name)
         {
-            return _packages.Where(x => x.Name.ToLower().Contains(name.ToLower()));
+            return _repository._packages.Where(x => x.Name.ToLower().Contains(name.ToLower()));
         }
 
         // POST: api/Packages

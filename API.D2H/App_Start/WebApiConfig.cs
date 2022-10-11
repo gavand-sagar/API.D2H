@@ -15,7 +15,7 @@ namespace API.D2H
 
             var container = new UnityContainer();
             
-            container.RegisterSingleton<IRepository, Repository>(); 
+            container.RegisterType<IRepository, Repository>(); 
             
             
             

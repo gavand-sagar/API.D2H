@@ -9,5 +9,6 @@ namespace API.D2H.Models
     public interface IRepository
     {
         IEnumerable<string> MyValues { get; set; }
+        List<Package> _packages { get; set; }
     }
 }
