@@ -22,10 +22,19 @@ namespace API.D2H.Controllers
         };
 
 
+        IRepository _repository;
+
+        public PackagesController(IRepository repository)
+        {
+            this._repository = repository;
+        }
+
 
         // GET: api/Packages
         public IEnumerable<Package> Get()
         {
+
+            var result = _repository.MyValues;
             return _packages;
         }
 
