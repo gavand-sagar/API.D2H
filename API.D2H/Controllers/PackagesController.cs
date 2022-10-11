@@ -10,10 +10,6 @@ namespace API.D2H.Controllers
 {
     public class PackagesController : ApiController
     {
-
-        
-
-
         private IRepository _repository;
 
         public PackagesController(IRepository repository)
