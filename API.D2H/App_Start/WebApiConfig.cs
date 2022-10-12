@@ -1,4 +1,7 @@
 ﻿using API.D2H.Models;
+using BL.D2H;
+using BL.D2H.Implemetations;
+using BL.D2H.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +17,13 @@ namespace API.D2H
             // Web API configuration and services
 
             var container = new UnityContainer();
-            
-            container.RegisterType<IRepository, Repository>(); 
-            
-            
-            
-            
+
+            container.RegisterType<IPackageBL, PackageBL>();
+            container.RegisterType<ICustomerBL, CustomerBL>();
+
+
+
             config.DependencyResolver = new UnityResolver(container);
-
-
 
             // Web API routes
             config.MapHttpAttributeRoutes();

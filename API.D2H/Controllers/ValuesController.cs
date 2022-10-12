@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BL.D2H;
+using BL.D2H.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,6 +12,11 @@ namespace API.D2H.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        private ICustomerBL businessLogic;
+        public ValuesController(ICustomerBL customerBL)
+        {
+            this.businessLogic = customerBL;
+        }
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };

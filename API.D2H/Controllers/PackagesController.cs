@@ -1,4 +1,7 @@
 ﻿using API.D2H.Models;
+using BL.D2H;
+using BL.D2H.Interfaces;
+using Models.D2H;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +13,17 @@ namespace API.D2H.Controllers
 {
     public class PackagesController : ApiController
     {
-        private IRepository _repository;
-
-        public PackagesController(IRepository repository)
+        private IPackageBL businessLogic;
+        public PackagesController(IPackageBL packageBL)
         {
-            this._repository = repository;
+            this.businessLogic = packageBL;
         }
-
 
         // GET: api/Packages
-        public IEnumerable<Package> Get()
+        public List<Package> Get()
         {
 
-            var result = _repository.MyValues;
-            return _repository._packages;
-        }
-
-        // GET: api/Packages/5
-        public IEnumerable<Package> Get(string name)
-        {
-            return _repository._packages.Where(x => x.Name.ToLower().Contains(name.ToLower()));
+            return businessLogic.GetAll();
         }
 
         // POST: api/Packages
